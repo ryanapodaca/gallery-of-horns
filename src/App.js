@@ -14,10 +14,9 @@ class App extends React.Component {
           <Footer />
       </>
     )
-    // <h1>Hello!</h1>
   }
 }
-//3rd export class
+//3rd export class--------
 export default App;
 
 
