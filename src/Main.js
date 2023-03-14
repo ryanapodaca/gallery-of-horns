@@ -1,8 +1,15 @@
 import React from 'react';
+import HornedBeast from 'HornedBeast';
 
 class Main extends React.Component {
   render() {
-    return <p>Hello Class!</p>
+    return (
+      <>
+        <HornedBeast title= {Fred} imageURL= {fred.com} description={red}></HornedBeast>
+        <HornedBeast title= {Gus} imageURL= {gus.com} description={blue}></HornedBeast>
+      
+      </>
+    )
   }
 }
 
