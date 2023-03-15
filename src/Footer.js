@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Footer = () => {
-  return <h2>Ryan Apodaca</h2>;
+
+class Footer extends React.Component {
+  render() {
+    return <footer>Author: Ryan Apodaca</footer>
+  }
 }
+
+// const Footer = () => {
+//   return 
+// }
 
 export default Footer;
