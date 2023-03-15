@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Title = () => {
-  return <h1>Gallery of Horns</h1>;
+
+class Header extends React.Component {
+  render() {
+    return <h1>Gallery of Horns</h1>
+  }
 }
 
-export default Title;
+// const Title = () => {
+//   return 
+// }
+
+export default Header;
