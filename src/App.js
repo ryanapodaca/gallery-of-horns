@@ -43,7 +43,7 @@ class App extends React.Component {
           <Main handleRenderModal={this.handleRenderModal} data={data} />
           <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
             <Modal.Header closeButton>{this.state.selectedBeastTitle}</Modal.Header>
-            <img src={this.state.selectedBeastImage} alt='beast image'/>
+            <img src={this.state.selectedBeastImage} alt='beast'/>
             {this.state.selectedBeastDescription}
           </Modal>
           <Footer />
