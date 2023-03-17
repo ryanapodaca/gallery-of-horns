@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-
 class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
@@ -21,9 +20,9 @@ class HornedBeast extends React.Component {
       favoriteCount: this.state.favoriteCount + 1
     })
   }
+  
   render() {
     return (
-
       <Card style={{ width: '18rem' }}>
         <Card.Img onClick={this.handleImageClick} variant="top" src={this.props.image_url} id={this.props._id} alt={this.props.keyword} title={this.props.title} />
         <Card.Body>

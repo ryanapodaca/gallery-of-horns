@@ -1,21 +1,21 @@
-import React from 'react';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import Modal from 'react-bootstrap/Modal';
+import React from 'react'
+import Header from './Header'
+import Main from './Main'
+import Footer from './Footer'
 import data from './data/data.json'
+import SelectedBeast from './SelectedBeast'
+import Form from 'react-bootstrap/Form'
 
 
-//2nd class-will always have render method
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+      sortedData: data,
       showModal: false,
       selectedBeastTitle: '',
       selectedBeastImage: '',
       selectedBeastDescription: ''
-
     }
   }
 
@@ -35,25 +35,73 @@ class App extends React.Component {
       selectedBeastDescription: description
     })
   }
-  
-  render(){
+  //Form method
+
+  handleSelectedHorns = (event) => {
+    let selected = event.target.value;
+
+    if (selected === '1 horn') {
+      let newData = data.filter(obj => (obj.horns === 1))
+      this.setState({
+        sortedData: newData
+      })
+    } else if (selected === '2 horns') {
+      let newData = data.filter(obj => (obj.horns === 2))
+      this.setState({
+        sortedData: newData
+      })
+    } else if (selected === '3 horns') {
+      let newData = data.filter(obj => (obj.horns === 3))
+      this.setState({
+        sortedData: newData
+      })
+    } else if (selected === '100 horns') {
+      let newData = data.filter(obj => (obj.horns === 100))
+      this.setState({
+        sortedData: newData
+      })
+    } else if (selected === 'all') {
+      this.setState({
+        sortedData: data
+      })
+    }
+  }
+
+  //render
+  render() {
     return (
       <>
-          <Header />
-          <Main handleRenderModal={this.handleRenderModal} data={data} />
-          <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
-            <Modal.Header closeButton>{this.state.selectedBeastTitle}</Modal.Header>
-            <img src={this.state.selectedBeastImage} alt='beast'/>
-            {this.state.selectedBeastDescription}
-          </Modal>
-          <Footer />
+        <Header />
+        <Form>
+          <Form.Group>
+            <Form.Select name='selected' onChange={this.handleSelectedHorns}>
+              <option value='' >Select number of horns displayed</option>
+              <option value='1 horn' >1 horn</option>
+              <option value='2 horns' >2 horns</option>
+              <option value='3 horns' >3 horns</option>
+              <option value='100 horns' >100 horns</option>
+              <option value='all' >All beasts</option>
+            </Form.Select>
+          </Form.Group>
+        </Form>
+        <Main
+          handleRenderModal={this.handleRenderModal}
+          data={this.state.sortedData}
+        />
+        <SelectedBeast
+          showModal={this.state.showModal}
+          handleCloseModal={this.handleCloseModal}
+          selectedBeastTitle={this.state.selectedBeastTitle}
+          selectedBeastImage={this.state.selectedBeastImage}
+          selectedBeastDescription={this.state.selectedBeastDescription}
+        />
+        <Footer />
       </>
     )
   }
 }
 
 
-//3rd export class--------
 export default App;
 
 
